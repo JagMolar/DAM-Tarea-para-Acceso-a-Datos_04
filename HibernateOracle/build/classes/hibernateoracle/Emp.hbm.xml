@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 12-ene-2022 11:32:24 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="hibernateoracle.Emp" optimistic-lock="version" schema="SYSTEM" table="EMP">
+    <id name="empno" type="short">
+      <column name="EMPNO" precision="4" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="hibernateoracle.Dept" fetch="select" name="dept">
+      <column name="DEPTNO" not-null="true" precision="2" scale="0"/>
+    </many-to-one>
+    <property name="ename" type="string">
+      <column length="10" name="ENAME"/>
+    </property>
+    <property name="job" type="string">
+      <column length="9" name="JOB"/>
+    </property>
+    <property name="mgr" type="java.lang.Short">
+      <column name="MGR" precision="4" scale="0"/>
+    </property>
+    <property name="hiredate" type="date">
+      <column length="7" name="HIREDATE"/>
+    </property>
+    <property name="sal" type="big_decimal">
+      <column name="SAL" precision="7"/>
+    </property>
+    <property name="comm" type="big_decimal">
+      <column name="COMM" precision="7"/>
+    </property>
+  </class>
+</hibernate-mapping>
